@@ -1,0 +1,33 @@
+SYPHER CREATIVE SOLUTIONS: COMPACT SPACING + NO EM DASHES
+
+This hotfix is for the Vercel-ready Sypher website.
+
+FIXES
+- Removes em dashes from the website text, labels, metadata and scripts.
+- Displays previously saved website copy without em dashes.
+- Reduces vertical spacing between numbered sections on desktop and mobile.
+- Keeps the existing purple UI, animation, videos, admin and Supabase APIs.
+
+INSTALL IN YOUR EXISTING GIT REPOSITORY
+1. Back up your project folder or create a git commit first.
+2. Extract this ZIP into the EXISTING sypher-creative-solutions project folder.
+   The public and api folders should merge. Replace matching files.
+3. From VS Code PowerShell, run:
+   git status
+   npm test
+   git add .
+   git commit -m "Tighten section spacing and remove em dashes"
+   git push origin main
+4. In Vercel > Deployments, wait for the new GitHub-triggered deployment
+   to show Ready, then hard refresh your browser with Ctrl+Shift+R.
+5. Review all sections, especially 01 About to 02 Motion, and 06 to 07.
+
+NO CREDENTIAL CHANGES NEEDED
+- Do not put your Supabase secret or admin password in GitHub.
+- Existing Supabase records and Vercel environment variables are not touched.
+- If GitHub auto-deployment is enabled, git push triggers the update.
+
+STYLE TUNING
+- Adjust public/css/spacing-fix.css to increase/decrease the gap.
+  Default desktop section padding is roughly 56-76px on each side,
+  depending on viewport width; mobile padding is 44px.

@@ -1,0 +1,32 @@
+/* Sypher Studio: more compact and balanced section spacing.
+   Loaded last to override earlier theme-specific spacing without touching animations. */
+:root { --sypher-section-gap: clamp(56px, 5.1vw, 76px); }
+main > section.section:not(.hero) {
+  padding-top: var(--sypher-section-gap);
+  padding-bottom: var(--sypher-section-gap);
+  scroll-margin-top: 84px;
+}
+/* The secondary film bridges the portfolio and testimonials; avoid a large empty band. */
+main > section.mini-film-section {
+  padding-top: 12px;
+  padding-bottom: 48px;
+}
+/* Keep the opening hero spacious while reducing the dead space at its bottom edge. */
+main > section.hero.section { padding-top: 100px; padding-bottom: 78px; }
+.motion-header { margin-bottom: 30px; }
+/* Slightly tighter final sections make the adaptive dashboard easier to reach. */
+main > section.testimonials.section { padding-bottom: 56px; }
+main > section.dashboard-section.section { padding-top: 65px; }
+@media (max-width: 900px) {
+  :root { --sypher-section-gap: 56px; }
+  main > section.hero.section { padding-top: 80px; padding-bottom: 64px; }
+  main > section.mini-film-section { padding-bottom: 38px; }
+}
+@media (max-width: 600px) {
+  :root { --sypher-section-gap: 44px; }
+  main > section.hero.section { padding-top: 70px; padding-bottom: 48px; }
+  main > section.mini-film-section { padding-top: 8px; padding-bottom: 28px; }
+  main > section.testimonials.section { padding-bottom: 40px; }
+  main > section.dashboard-section.section { padding-top: 44px; }
+  .motion-header { margin-bottom: 24px; }
+}

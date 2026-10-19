@@ -1,0 +1,95 @@
+/* Sypher / 2026: Floating Adaptive Experience dashboard.
+   Keeps the full scoring and controls available without adding a tall page section. */
+.performance-launcher{
+  position:fixed;right:24px;bottom:23px;z-index:95;display:flex;align-items:center;gap:12px;
+  min-width:220px;min-height:65px;padding:10px 17px 10px 10px;
+  color:#fbf9ff;background:linear-gradient(125deg,rgba(49,29,91,.96),rgba(24,17,50,.98));
+  border:1px solid rgba(203,167,255,.54);border-radius:20px;
+  box-shadow:0 12px 42px rgba(7,3,26,.72),inset 0 1px 0 rgba(255,255,255,.14);
+  text-align:left;font:inherit;cursor:pointer;isolation:isolate;
+  -webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);
+}
+.performance-launcher:hover{border-color:#d1b5ff;background:linear-gradient(125deg,#4e3387,#24183e)}
+.performance-launcher:focus-visible,.performance-panel-icon:focus-visible{outline:3px solid #8ce9ee;outline-offset:4px}
+.performance-launch-icon{display:grid;place-items:center;width:43px;height:43px;flex:none;
+  background:linear-gradient(135deg,#dfbeff,#a47afb);border-radius:14px;color:#25113f;box-shadow:0 0 26px #b586ff38}
+.performance-launch-copy{display:grid;gap:3px;min-width:0}
+.performance-launch-eyebrow{font-size:9px;letter-spacing:1.4px;font-weight:800;color:#c1ace0}
+.performance-launch-copy strong{font-size:14px;font-weight:800;letter-spacing:.02em}
+.performance-launch-chevron{font-size:23px;margin-left:auto;color:#dfc8ff;line-height:1;transition:transform .18s ease}
+.performance-launcher[aria-expanded="true"] .performance-launch-chevron{transform:rotate(180deg)}
+.performance-launcher[hidden],.floating-performance-panel[hidden]{display:none!important}
+.floating-performance-panel{
+ position:fixed;right:24px;bottom:99px;z-index:94;width:min(540px,calc(100vw - 32px));
+ height:min(700px,calc(100dvh - 171px));min-height:200px;
+ display:flex;flex-direction:column;overflow:hidden;
+ color:#f8f2ff;background:linear-gradient(155deg,#221736 0%,#130e24 45%,#111026 100%);
+ border:1px solid rgba(194,157,246,.46);border-radius:25px;
+ box-shadow:0 26px 98px rgba(3,1,13,.82),inset 0 1px 0 rgba(255,255,255,.07);
+ -webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);
+}
+.performance-panel-header{flex:none;display:flex;align-items:center;justify-content:space-between;gap:8px;
+ min-height:82px;padding:16px 19px;border-bottom:1px solid rgba(193,153,255,.19);
+ background:linear-gradient(90deg,rgba(103,57,164,.23),rgba(24,14,44,.62))}
+.performance-panel-identity{display:flex;align-items:center;gap:12px;min-width:0}
+.performance-status-light{flex:none;width:10px;height:10px;border-radius:50%;background:#96e2d3;box-shadow:0 0 0 5px rgba(150,226,211,.1),0 0 16px #69dac1}
+.performance-panel-eyebrow{display:block;color:#c7b0ed;font-size:9px;letter-spacing:1.6px;font-weight:800;margin-bottom:5px}
+.performance-panel-header h2{font-size:clamp(17px,2.5vw,21px);line-height:1.2;color:#fff;letter-spacing:-.045em;margin:0}
+.performance-panel-buttons{display:flex;align-items:center;gap:5px;flex:none}
+.performance-panel-current{font-size:10px;font-weight:900;letter-spacing:.5px;color:#ebd7ff;background:rgba(183,136,255,.14);
+ border:1px solid rgba(188,153,253,.23);padding:7px 8px;border-radius:99px}
+.performance-panel-icon{display:grid;place-items:center;width:31px;height:31px;border-radius:10px;
+ border:1px solid rgba(203,178,255,.22);background:rgba(255,255,255,.06);color:#eee1ff;cursor:pointer;font-size:21px;line-height:1}
+.performance-panel-icon:hover{background:rgba(195,152,255,.24)}
+.performance-panel-hide:hover{background:rgba(238,125,174,.22)}
+.performance-panel-scroll{flex:1;min-height:0;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#77569e #1b1530}
+.performance-panel-scroll:focus-visible{outline:2px solid #90e4e9;outline-offset:-3px}
+.performance-panel-inner{width:100%;min-width:0;padding:20px 20px 22px}
+.floating-performance-panel .section-kicker{font-size:10px;letter-spacing:1.5px}
+.floating-performance-panel .section-head{display:block;margin:8px 0 16px}
+.floating-performance-panel .section-head h2{font-size:clamp(24px,3vw,30px);letter-spacing:-1px;line-height:1.15;margin:0 0 7px}
+.floating-performance-panel .section-head p{font-size:12px;line-height:1.5;margin:0;color:#bfb4d2}
+.floating-performance-panel .dashboard{border:0;border-radius:17px;box-shadow:none;background:rgba(13,11,30,.36);padding:15px}
+.floating-performance-panel .dash-top{align-items:center;flex-direction:row;gap:9px}
+.floating-performance-panel .dash-top h3{font-size:17px;line-height:1.2;margin:5px 0}
+.floating-performance-panel .dash-top p{font-size:11px;margin:0}
+.floating-performance-panel .mode-badge{padding:5px 8px;font-size:10px}
+.floating-performance-panel .metrics{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:16px 0}
+.floating-performance-panel .metric{min-width:0;padding:12px;border-radius:12px}
+.floating-performance-panel .metric span{font-size:10px}
+.floating-performance-panel .metric strong{font-size:16px;line-height:1.3;overflow-wrap:anywhere;margin-top:5px}
+.floating-performance-panel .adapt-explain{padding:12px;margin:13px 0 16px;border-radius:15px}
+.floating-performance-panel .adapt-section-heading{align-items:flex-start;flex-direction:column;gap:8px}
+.floating-performance-panel .adapt-section-heading h4{font-size:17px}
+.floating-performance-panel .adapt-live-tag{font-size:9px;padding:6px 9px}
+.floating-performance-panel .adapt-pipeline{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.floating-performance-panel .adapt-step{padding:12px}
+.floating-performance-panel .adapt-step-count{margin-bottom:8px}
+.floating-performance-panel .adapt-step p{min-height:0}
+.floating-performance-panel .adapt-lower{grid-template-columns:1fr;gap:9px}
+.floating-performance-panel .adapt-score-card,.floating-performance-panel .adapt-features-card{padding:13px}
+.floating-performance-panel .adapt-actions{align-items:stretch;flex-direction:column;gap:9px}
+.floating-performance-panel .adapt-export{align-self:flex-start;max-width:100%}
+.floating-performance-panel .mode-controls{align-items:stretch;flex-direction:column;gap:12px}
+.floating-performance-panel .mode-buttons{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.floating-performance-panel .mode-buttons button{padding:10px 3px;font-size:12px}
+.floating-performance-panel .visual-system-status{margin-top:14px}
+.floating-performance-panel .visual-status-stats{gap:8px}
+.floating-performance-panel .dashboard-footnote{font-size:11px}
+.performance-widget-hint{color:#a999c6;font-size:10px;line-height:1.6;margin:16px 2px 0}
+/* Keep the independent back-to-top control unobstructed. */
+body:has(.performance-launcher:not([hidden])) .top-float{bottom:99px}
+body:has(.floating-performance-panel:not([hidden])) .top-float{opacity:0;pointer-events:none}
+@media(max-width:700px){
+ .performance-launcher{right:12px;bottom:12px;min-height:58px;min-width:192px;padding:8px 12px 8px 8px;border-radius:17px}
+ .performance-launch-icon{width:39px;height:39px}
+ .floating-performance-panel{right:10px;bottom:82px;width:calc(100vw - 20px);height:min(680px,calc(100dvh - 160px));border-radius:19px}
+ .performance-panel-header{padding:12px 12px;min-height:69px}
+ .performance-panel-inner{padding:14px 12px 16px}
+ .floating-performance-panel .dashboard{padding:10px}
+ .floating-performance-panel .section-head{margin:7px 0 12px}
+ .floating-performance-panel .metric{padding:10px}
+ body:has(.performance-launcher:not([hidden])) .top-float{bottom:86px}
+}
+@media(max-width:380px){.performance-panel-current{display:none}.floating-performance-panel .adapt-breakdown{grid-template-columns:1fr 1fr}.floating-performance-panel .adapt-part{padding:7px;font-size:10px}}
+@media(prefers-reduced-motion:reduce){.performance-launch-chevron{transition:none!important}}

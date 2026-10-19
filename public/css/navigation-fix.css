@@ -1,0 +1,23 @@
+/* Navigation is intentionally ordered to match the actual page: 
+   Home · 01 About · 02 Motion · 03 Services · 04 Playground · 05 Work ·
+   06 Testimonials · 07 Performance · 08 Contact.
+   This file is last in the CSS cascade so the existing purple look is preserved. */
+.header{gap:20px;min-height:79px}
+.header>.logo{flex:0 0 auto}
+.nav{margin-left:auto;display:flex;align-items:center;justify-content:flex-end;gap:clamp(12px,1.35vw,22px);min-width:0;flex-wrap:nowrap}
+.nav>a{white-space:nowrap;flex:0 0 auto}
+.nav .nav-cta{margin-left:6px;white-space:nowrap}
+/* A desktop-sized menu with 9 links doesn't fit cleanly on narrow laptops.
+   Use the existing accessible menu control before the nav starts crowding. */
+@media (max-width:1050px){
+ .header{position:sticky;min-height:70px;padding:15px 26px;justify-content:space-between}
+ .menu-toggle{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;flex:0 0 auto}
+ .nav{display:none;position:absolute;top:100%;right:18px;left:auto;width:min(340px,calc(100vw - 36px));max-height:calc(100dvh - 90px);overflow-y:auto;overscroll-behavior:contain;box-shadow:0 22px 60px #0009;border:1px solid #b898fc46;border-radius:20px;background:#151023f8;backdrop-filter:blur(20px);padding:15px;flex-direction:column;align-items:stretch;gap:3px;z-index:20;margin-left:0}
+ .nav.open{display:flex}
+ .nav a{display:flex;align-items:center;min-height:43px;padding:10px 14px;border-radius:10px;font-size:13px}
+ .nav a:not(.nav-cta):hover,.nav a[aria-current="location"]{background:#b898fc16}
+ .nav .nav-cta{display:flex;justify-content:center;margin:7px 0 0;min-height:48px}
+ .nav a:not(.nav-cta)::after{display:none}
+}
+@media (max-width:700px){.header{padding:12px 18px;min-height:66px}.nav{top:100%}}
+@media (prefers-reduced-motion:reduce){.nav a{transition:none!important}}
